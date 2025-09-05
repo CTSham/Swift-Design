@@ -1,7 +1,37 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* TABLE OF CONTENT
+
+1. Default CSS
+2. Preloader CSS
+3. Mouse Animation CSS
+4. Nav Area CSS
+5. Banner Area CSS
+6. About Area CSS
+7. Services Area CSS
+8. Number Area CSS
+9. Portfolio Area CSS
+10. Testimonial Area CSS
+11. Contact Area CSS
+12. Brand Area CSS
+13. Footer Area CSS
+
+*/
+
+html, body {
+    height: 100%;
+}
+
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333333;
+    font-weight: 400;
 }
 
