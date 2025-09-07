@@ -97,7 +97,7 @@ img {
 .line-one {
     height: 1px;
     width: 100px;
-    background: #E91E63;
+    background: goldenrod;
     display: block;
     margin: 0 auto;
     padding: 0;
@@ -127,7 +127,7 @@ img {
 
 .loader:before, .loader:after {
     content: '';
-    border: 1em solid #E91E63;
+    border: 1em solid goldenrod;
     border-radius: 50%;
     width: inherit;
     height: inherit;
@@ -270,7 +270,7 @@ img {
 }
 
 .sticky_navigation .navbar-brand:hover, .sticky_navigation .navbar-brand:focus, .sticky_navigation .navbar-brand span {
-    color: #E91E63;
+    color: goldenrod;
 }
 
 .sticky_navigation .nav li a {
@@ -278,18 +278,18 @@ img {
 }
 
 .sticky_navigation .nav li.active a{
-    color: #E91E63;
+    color: goldenrod;
 }
 
 .sticky_navigation .nav li.active::before {
-    border-top: 1px solid #E91E63;
+    border-top: 1px solid goldenrod;
     content: "";
     display: block;
     margin: 0 auto;
     width: 50%;
 }
 .sticky_navigation .nav li.active::after {
-    border-bottom: 1px solid #E91E63;
+    border-bottom: 1px solid goldenrod;
     content: "";
     display: block;
     margin: 0 auto;
@@ -364,7 +364,7 @@ img {
 
 
 .banner-area{
-    background-image: url(../images/home/home-bg-1.png); /*--edit image--*/
+    background-image: url(../images/home/SwiftDesign-logo.png); /*--edit image--*/
     background-position: center;
     background-size:cover;
     position: relative;
@@ -425,7 +425,7 @@ canvas{
 }
 
 .banner-btn {
-    background: #E91E63;
+    background: goldenrod;
     text-decoration: none;
     padding: 10px 30px;
     display: inline-block;
@@ -480,7 +480,7 @@ canvas{
     color: #fff;
     font-size: 14px;
     text-transform: uppercase;
-    background: #E91E63;
+    background: goldenrod;
     padding: 15px;
     float: right;
     text-decoration: none;
@@ -544,7 +544,7 @@ canvas{
 
 .services-icon i {
 	font-size: 35px;
-	color: #E91E63;
+	color: goldenrod;
 }
 
 .single-services:hover i{
@@ -603,7 +603,7 @@ canvas{
 }
 
 .single-services:hover .services-content h3 {
-	color: #E91E63;
+	color: goldenrod;
 }
 
 /*--------------- Services area ends --------------*/
@@ -611,7 +611,7 @@ canvas{
 /*-------- 8. Number area css starts-----------*/
 
 .number-area {
-	background: #E91E63;
+	background: goldenrod;
 	color: #fff;
 }
 
@@ -636,7 +636,7 @@ canvas{
 .por-text-details .col-xs-4 p {
 	font-weight: bold;
 	text-transform: uppercase;
-	color: #E91E63;
+	color: goldenrod;
 }
 
 .mfp-zoom-out .mfp-with-anim {
@@ -677,7 +677,7 @@ canvas{
 	margin: 0;
 	font-size: 22px;
 	margin-bottom: 15px;
-	border-bottom: 3px solid #E91E63;
+	border-bottom: 3px solid goldenrod;
 	padding-bottom: 10px;
 }
 
@@ -703,7 +703,7 @@ canvas{
 	position: relative;
 	text-align: center;
 	cursor: pointer;
-	background: rgba(233,30,99,0.9);
+	background: goldenrod;
 }
 
 .hovereffect .overlay {
@@ -733,7 +733,7 @@ canvas{
 
 .hovereffect h2 {
 	text-transform: uppercase;
-	color: tomato;
+	color: goldenrod;
 	position: relative;
 	font-size: 17px;
 	background-color: transparent;
@@ -843,7 +843,7 @@ canvas{
 .block-quote h2 {
 	text-transform: uppercase;
 	font-size: 25px;
-	color: #E91E63;
+	color: goldenrod;
 }
 
 .block-quote h3 {
@@ -894,7 +894,7 @@ canvas{
 
 .single-contact i {
     font-size: 30px;
-    color: #E91E63;
+    color: goldenrod;
 }
 
 .single-contact .socials i {
@@ -932,7 +932,7 @@ canvas{
 }
 
 .btn.btn-send {
-    background: #E91E63;
+    background: goldenrod;
     color: #ffffff;
     padding: 15px 20px;
     text-transform: uppercase;
