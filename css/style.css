@@ -364,7 +364,7 @@ img {
 
 
 .banner-area{
-    background-image: url(../images/home/SwiftDesign-logo.png); /*--edit image--*/
+    background-image: url(../images/home/SwiftDesign-logo.png);
     background-position: center;
     background-size:cover;
     position: relative;
@@ -528,7 +528,7 @@ canvas{
 .skillbar-bar .skillbar-child {
     width: 0;
     height: 100%;
-    background-color: #606060;
+    background-color: goldenrod;
     -webkit-transition-property: width, background-color;
     -o-transition-property: width, background-color;
     transition-property: width, background-color
@@ -803,7 +803,7 @@ canvas{
 /*-------- 10. Testimonial area starts-----------*/
 
 .testimonial-area{
-	background-image: url(../images/testimonial/testimonial.png);
+	background-image: url(../images/testimonial/Code-bg);
 	background-size:cover;
 	background-position: center center;
 	position: relative;
@@ -978,7 +978,7 @@ canvas{
 
 .footer-area {
     background: #232323;
-    color: #ffffff;
+    color: goldenrod;
     padding: 30px 0;
 }
 
