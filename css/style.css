@@ -984,6 +984,14 @@ canvas{
 
 /*--------------- Footer area ends -------------*/
 
+.port-box .overlay p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  overflow: hidden;
+}
+
 
 
 
