@@ -3,9 +3,7 @@ $(document).ready(function () {
 
 	//********* page loader js
 
-	setTimeout(function () {
-		$('.loader_bg').fadeToggle();
-	}, 2000);
+	$('.loader_bg').fadeToggle();
 
 
 	//********** menu background color change while scroll
