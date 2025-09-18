@@ -1,3 +1,9 @@
+// Simple JS event listener for demo/test: shows alert on submit
+document.querySelector("#contact-form")?.addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Your message was sent!");
+    // Here you’d also add fetch() to send data to backend
+});
 // init the validator
 // validator files are included in the download package
 // otherwise download from http://1000hz.github.io/bootstrap-validator
