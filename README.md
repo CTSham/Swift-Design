@@ -1,6 +1,6 @@
-# Swift Design — Portfolio Website
+# Swift Design — Website
 
-A responsive, single-page portfolio site for Corey Shamburger (Swift Design). Built with HTML, CSS (Bootstrap), and JavaScript, with optional PHP backend for the contact form.
+A responsive, single-page website with my portfolio for Corey Shamburger (Swift Design). Built with HTML, CSS (Bootstrap), and JavaScript, with optional PHP backend for the contact form.
 
 ## Features
 - Smooth scrolling navigation and sticky header
