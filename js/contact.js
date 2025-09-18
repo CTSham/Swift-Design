@@ -1,8 +1,7 @@
-// Simple JS event listener for demo/test: shows alert on submit
+// Simple JS event listener for demo/test: redirect to thank you page on submit
 document.querySelector("#contact-form")?.addEventListener("submit", function(e) {
     e.preventDefault();
-    alert("Your message was sent!");
-    // Here you’d also add fetch() to send data to backend
+    window.location.href = "thank-you.html";
 });
 // init the validator
 // validator files are included in the download package
