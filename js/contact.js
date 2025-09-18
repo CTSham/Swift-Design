@@ -13,7 +13,6 @@ $(function () {
 
         // if the validator does not prevent form submit
         if (!e.isDefaultPrevented()) {
-            alert('Contact form submit handler triggered!'); // Debugging: confirm button is active
             var url = "contact.php";
 
             // POST values in the background the the script URL
