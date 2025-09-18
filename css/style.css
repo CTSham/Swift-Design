@@ -1,3 +1,11 @@
+/* Fix popup link overflow */
+.por-text-details p {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    overflow: hidden;
+}
 /* =================================================
 
 NB: This file contains the styling for the actual theme, this is the file you need to edit to change the look of the theme.
