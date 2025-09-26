@@ -8,8 +8,9 @@
     <meta name="description" content="portfolio template based on HTML5">
     <meta name="keywords" content="onepage, developer, resume, cv, personal, portfolio, personal resume, clean, modern">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="ya_VXJpQbtcXxBkBtYPGt7stJWUYD58RJZOUkxwngZA" />
     <script src="https://kit.fontawesome.com/a242e233f0.js" crossorigin="anonymous"></script>
-    <title>Corey Shamburger | Portfolio</title>
+    <title>Swift Design</title>
     <meta name="theme-color" content="#ffffff">
     
 
@@ -48,13 +49,6 @@
 
 <body>
 
-    <!--preloader starts-->
-
-    <div class="loader_bg">
-        <div class="loader"></div>
-    </div>
-
-    <!--preloader ends-->
 
     <!--navigation area starts-->
 
@@ -149,12 +143,13 @@
                         <p>I am a passionate and dedicated web developer with over 5 years of experience in creating
                             stunning and user-friendly websites. My expertise lies in HTML, CSS, JavaScript, and various
                             frontend frameworks. I love turning ideas into reality through code and design.</p>
-                        <a href="images/about/demo-cv.png" download>Download CV &nbsp; &nbsp;<i
-                                class="fa fa-download"></i></a> <!--edit about resume-->
+                        <a href="images/about/Corey-Resume.pdf" download>Download CV&nbsp;&nbsp;<i
+                                class="fa fa-download"></i></a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <img src="images/about/about.png" class="img-responsive" alt="about image">
+                        <link rel="preload" as="image" href="images/about/IMG_0082.jpg">
+                        <img src="images/about/IMG_0082.jpg" class="img-responsive" alt="about image" width="300" height="400" fetchpriority="high">
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
                     <div class="about-text-right">
@@ -164,7 +159,7 @@
                                 <div class="col-md-12">
                                     <div class="skillbar" data-percent="95%">
                                         <h6 class="skillbar-title">HTML / CSS</h6>
-                                        <h6 class="skillbar-percent">95%</h6> 
+                                        <h6 class="skillbar-percent">95%</h6>
                                         <div class="skillbar-bar">
                                             <div class="skillbar-child"></div>
                                         </div>
@@ -315,7 +310,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="single-number text-center">
                         <i class="fa fa-user"></i>
-                        <h2 class="counter">723</h2> 
+                        <h2 class="counter">723</h2>
                         <p>Happy Customers</p>
                     </div>
                 </div>
@@ -348,286 +343,48 @@
             <div class="row">
                 <div class="portfolio-items">
                     <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
-                        <div id="inline-popups" class="port-box">
-                            <a href="#test-popup" data-effect="mfp-zoom-out">
+                        <div id="inline-popups-1">
+                            <a href="#test-popup-1" data-effect="mfp-zoom-out">
                                 <div class="hovereffect">
-                                    <img src="images/portfolio/port1.png" alt="portfolio image" class="img-responsive">
-                                    <!--edit image-->
+                                    <img src="images/portfolio/Netflix Clone.jpg" alt="portfolio image"
+                                        class="img-responsive">
                                     <div class="overlay">
-                                        <h2>Project One</h2> <!--your project name-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolores, velit.
-                                            Accusantium mollitia obcaecati quos.</p>
+                                        <h2>Netflix Clone</h2>
+                                        <p>Netflix Clone — Web app replicating Netflix’s UI with movie browsing, user
+                                            authentication, and video playback to showcase frontend and UI skills.</p>
                                     </div>
                                 </div>
                             </a>
-                        </div>
-                        <div id="test-popup" class="white-popup mfp-with-anim mfp-hide">
-                            <div class="row">
-                                <div class="col-md-7 col-xs-12">
-                                    <div class="por-img">
-                                        <img src="images/portfolio/port1.png" alt="portfolio image"
-                                            class="img-responsive"> <!--edit image-->
-                                    </div>
-                                </div>
-                                <div class="col-md-5 col-xs-12">
-                                    <div class="por-text">
-                                        <h2>My Project Title</h2> <!--your project title-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, delectus
-                                            deserunt eum eveniet, illo iste magni nobis non omnis quia</p>
-                                        <div class="por-text-details">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <p>Client: </p>
-                                                    <p>Completed:</p>
-                                                    <p>Type:</p>
-                                                    <p>link:</p>
-                                                </div>
-                                                <div class="col-xs-offset-1 col-xs-7">
-                                                    <p>Reebok</p> <!--edit here-->
-                                                    <p>15/03/2018</p> <!--edit here-->
-                                                    <p>WordPress Site</p> <!--edit here-->
-                                                    <p>www.reebok.com</p> <!--edit here-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
-                        <div id="inline-popups-2">
-                            <a href="#test-popup-2" data-effect="mfp-zoom-out">
-                                <div class="hovereffect">
-                                    <img src="images/portfolio/port2.png" alt="portfolio image" class="img-responsive">
-                                    <!--edit image-->
-                                    <div class="overlay">
-                                        <h2>Project Two</h2> <!--your project name-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolores, velit.
-                                            Accusantium mollitia obcaecati quos.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div id="test-popup-2" class="white-popup mfp-with-anim mfp-hide">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="por-img">
-                                        <img src="images/portfolio/port2.png" alt="portfolio image"
-                                            class="img-responsive"> <!--edit image-->
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="por-text">
-                                        <h2>My Project Title</h2> <!--your project title-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, delectus
-                                            deserunt eum eveniet, illo iste magni nobis non omnis quia</p>
-                                        <div class="por-text-details">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <p>Client: </p>
-                                                    <p>Completed:</p>
-                                                    <p>Type:</p>
-                                                    <p>link:</p>
-                                                </div>
-                                                <div class="col-xs-offset-1 col-xs-7">
-                                                    <p>SportsDirect</p> <!--edit here-->
-                                                    <p>15/03/2018</p> <!--edit here-->
-                                                    <p>Joomla Site</p> <!--edit here-->
-                                                    <p>www.sportsdirect.com</p> <!--edit here-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div id="test-popup-1" class="white-popup mfp-with-anim mfp-hide">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="por-img">
+                                    <img src="images/portfolio/Netflix Clone.jpg" alt="portfolio image"
+                                        class="img-responsive">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
-                        <div id="inline-popups-3">
-                            <a href="#test-popup-3" data-effect="mfp-zoom-out">
-                                <div class="hovereffect">
-                                    <img src="images/portfolio/port3.png" alt="portfolio image" class="img-responsive">
-                                    <!--edit image-->
-                                    <div class="overlay">
-                                        <h2>Project Three</h2> <!--your project name-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolores, velit.
-                                            Accusantium mollitia obcaecati quos.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div id="test-popup-3" class="white-popup mfp-with-anim mfp-hide">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="por-img">
-                                        <img src="images/portfolio/port3.png" alt="portfolio image"
-                                            class="img-responsive"> <!--edit image-->
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="por-text">
-                                        <h2>My Project Title</h2> <!--your project title-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, delectus
-                                            deserunt eum eveniet, illo iste magni nobis non omnis quia</p>
-                                        <div class="por-text-details">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <p>Client: </p>
-                                                    <p>Completed:</p>
-                                                    <p>Type:</p>
-                                                    <p>link:</p>
-                                                </div>
-                                                <div class="col-xs-offset-1 col-xs-7">
-                                                    <p>Sainsbury</p> <!--edit here-->
-                                                    <p>15/03/2018</p> <!--edit here-->
-                                                    <p>Drupal Site</p> <!--edit here-->
-                                                    <p>www.sainsbury.co.uk</p> <!--edit here-->
-                                                </div>
+                            <div class="col-md-5">
+                                <div class="por-text">
+                                    <h2>Netflix Clone</h2>
+                                    <p>Netflix Clone — Web app replicating Netflix’s UI with movie browsing, user
+                                        authentication, and video playback to showcase frontend and UI skills.</p>
+                                    <div class="por-text-details">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <p>Client: </p>
+                                                <p>Completed:</p>
+                                                <p>Type:</p>
+                                                <p>link:</p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
-                        <div id="inline-popups-4">
-                            <a href="#test-popup-4" data-effect="mfp-zoom-out">
-                                <div class="hovereffect">
-                                    <img src="images/portfolio/port4.png" alt="portfolio image" class="img-responsive">
-                                    <!--edit image-->
-                                    <div class="overlay">
-                                        <h2>Project Four</h2> <!--your project name-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolores, velit.
-                                            Accusantium mollitia obcaecati quos.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div id="test-popup-4" class="white-popup mfp-with-anim mfp-hide">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="por-img">
-                                        <img src="images/portfolio/port4.png" alt="portfolio image"
-                                            class="img-responsive"> <!--edit image-->
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="por-text">
-                                        <h2>My Project Title</h2> <!--your project title-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, delectus
-                                            deserunt eum eveniet, illo iste magni nobis non omnis quia</p>
-                                        <div class="por-text-details">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <p>Client: </p>
-                                                    <p>Completed:</p>
-                                                    <p>Type:</p>
-                                                    <p>link:</p>
-                                                </div>
-                                                <div class="col-xs-offset-1 col-xs-7">
-                                                    <p>Woolworths</p> <!--edit here-->
-                                                    <p>25/03/2018</p> <!--edit here-->
-                                                    <p>Shopify Site</p> <!--edit here-->
-                                                    <p>www.woolworths.co.au</p> <!--edit here-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
-                        <div id="inline-popups-5">
-                            <a href="#test-popup-5" data-effect="mfp-zoom-out">
-                                <div class="hovereffect">
-                                    <img src="images/portfolio/port5.png" alt="portfolio image" class="img-responsive">
-                                    <!--edit image-->
-                                    <div class="overlay">
-                                        <h2>Project Five</h2> <!--your project name-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolores, velit.
-                                            Accusantium mollitia obcaecati quos.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div id="test-popup-5" class="white-popup mfp-with-anim mfp-hide">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="por-img">
-                                        <img src="images/portfolio/port5.png" alt="portfolio image"
-                                            class="img-responsive"> <!--edit image-->
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="por-text">
-                                        <h2>My Project Title</h2> <!--your project title-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, delectus
-                                            deserunt eum eveniet, illo iste magni nobis non omnis quia</p>
-                                        <div class="por-text-details">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <p>Client: </p>
-                                                    <p>Completed:</p>
-                                                    <p>Type:</p>
-                                                    <p>link:</p>
-                                                </div>
-                                                <div class="col-xs-offset-1 col-xs-7">
-                                                    <p>Titan</p> <!--edit here-->
-                                                    <p>15/03/2018</p> <!--edit here-->
-                                                    <p>Magento Site</p> <!--edit here-->
-                                                    <p>www.titan.co.in</p> <!--edit here-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
-                        <div id="inline-popups-6">
-                            <a href="#test-popup-6" data-effect="mfp-zoom-out">
-                                <div class="hovereffect">
-                                    <img src="images/portfolio/port6.png" alt="portfolio image" class="img-responsive">
-                                    <!--edit image-->
-                                    <div class="overlay">
-                                        <h2>Project Six</h2> <!--your project name-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolores, velit.
-                                            Accusantium mollitia obcaecati quos.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div id="test-popup-6" class="white-popup mfp-with-anim mfp-hide">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="por-img">
-                                        <img src="images/portfolio/port6.png" alt="portfolio image"
-                                            class="img-responsive"> <!--edit image-->
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="por-text">
-                                        <h2>My Project Title</h2> <!--your project title-->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, delectus
-                                            deserunt eum eveniet, illo iste magni nobis non omnis quia</p>
-                                        <div class="por-text-details">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <p>Client: </p>
-                                                    <p>Completed:</p>
-                                                    <p>Type:</p>
-                                                    <p>link:</p>
-                                                </div>
-                                                <div class="col-xs-offset-1 col-xs-7">
-                                                    <p>Vodafone</p> <!--edit here-->
-                                                    <p>27/03/2018</p> <!--edit here-->
-                                                    <p>PrestaShop Site</p> <!--edit here-->
-                                                    <p>www.vodafone.com</p> <!--edit here-->
-                                                </div>
+                                            <div class="col-xs-offset-1 col-xs-7">
+                                                <p>Corey Shamburger</p>
+                                                <p>17/09/25</p>
+                                                <p>VSCode</p>
+                                                <p><a href="https://github.com/CTSham/Netflix-Clone.git" target="_blank"
+                                                        rel="noopener">https://github.com/CTSham/Netflix-Clone.git</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -636,11 +393,117 @@
                         </div>
                     </div>
                 </div>
-                
-                <!--end portfolio grid -->
-
+                <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
+                    <div id="inline-popups-2">
+                        <a href="#test-popup-2" data-effect="mfp-zoom-out">
+                            <div class="hovereffect">
+                                <img src="images/portfolio/Swift Design.jpg" alt="portfolio image"
+                                    class="img-responsive">
+                                <!--edit image-->
+                                <div class="overlay">
+                                    <h2>Swift Design CRM</h2>
+                                    <p>CRM Web App — Custom business management platform built with React, Vite, Redux
+                                        Toolkit, and TailwindCSS. Features data visualization, form handling,
+                                        animations, and testing setup.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="test-popup-2" class="white-popup mfp-with-anim mfp-hide">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="por-img">
+                                    <img src="images/portfolio/Swift Design.jpg" alt="portfolio image"
+                                        class="img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="por-text">
+                                    <h2>Swift Design CRM</h2>
+                                    <p>CRM Web App — Custom business management platform built with React, Vite, Redux
+                                        Toolkit, and TailwindCSS. Features data visualization, form handling,
+                                        animations, and testing setup.</p>
+                                    <div class="por-text-details">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <p>Client: </p>
+                                                <p>Completed:</p>
+                                                <p>Type:</p>
+                                                <p>link:</p>
+                                            </div>
+                                            <div class="col-xs-offset-1 col-xs-7">
+                                                <p>John Smith</p>
+                                                <p>12/09/25</p>
+                                                <p>VSCode</p>
+                                                <p><a href="https://github.com/CTSham/CRM-Site.git" target="_blank"
+                                                        rel="noopener">https://github.com/CTSham/CRM-Site.git</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 no-pad">
+                    <div id="inline-popups-3">
+                        <a href="#test-popup-3" data-effect="mfp-zoom-out">
+                            <div class="hovereffect">
+                                <img src="images/portfolio/Construction.jpeg" alt="portfolio image"
+                                    class="img-responsive">
+                                <div class="overlay">
+                                    <h2>Construction</h2>
+                                    <p>Construction — High-converting contractor marketplace landing page, built with
+                                        modern frontend tech for responsiveness, SEO, and user engagement.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="test-popup-3" class="white-popup mfp-with-anim mfp-hide">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="por-img">
+                                    <img src="images/portfolio/Construction.jpeg" alt="portfolio image"
+                                        class="img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="por-text">
+                                    <h2>Construction</h2>
+                                    <p>Construction — High-converting contractor marketplace landing page, built with
+                                        modern frontend tech for responsiveness, SEO, and user engagement.</p>
+                                    <div class="por-text-details">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <p>Client: </p>
+                                                <p>Completed:</p>
+                                                <p>Type:</p>
+                                                <p>link:</p>
+                                            </div>
+                                            <div class="col-xs-offset-1 col-xs-7">
+                                                <p>Joe Blow</p>
+                                                <p>05/09/25</p>
+                                                <p>Construction Site</p>
+                                                <p><a href="https://github.com/CTSham/Construction.git" target="_blank"
+                                                        rel="noopener">https://github.com/CTSham/Construction.git</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    </div>
+
+    <!--end portfolio grid -->
+
+    </div>
+    </div>
     </div>
 
     <!--Portfolio Area Ends-->
@@ -665,25 +528,36 @@
                             <div class="single-testi text-center item">
                                 <div class="testi-img"></div>
                                 <div class="block-quote">
-                                    <p>“Working with Corey was a game-changer. He transformed our vision for a contractor marketplace into a sleek, high-performing landing page that actually converts. The code was clean, responsive, and delivered ahead of schedule. I’d absolutely recommend him to anyone looking for a reliable frontend developer.”</p>
+                                    <p>“Working with Corey was a game-changer. He transformed our vision for a
+                                        contractor marketplace into a sleek, high-performing landing page that actually
+                                        converts. The code was clean, responsive, and delivered ahead of schedule. I’d
+                                        absolutely recommend him to anyone looking for a reliable frontend developer.”
+                                    </p>
                                     <h2>Angela Martinez</h2>
-                                    <h3>Project Manager, Top-Notch Builders</h3>
+                                    <h3>Project Manager, Construction Builders</h3>
                                 </div>
                             </div>
                             <div class="single-testi text-center item">
                                 <div class="testi-img"></div>
                                 <div class="block-quote">
-                                    <p>“Corey built a custom dashboard for our automotive shop, and it has completely streamlined our scheduling process. His attention to detail in the UI made it easy for our staff to learn, and the site runs flawlessly on every device. Professional, creative, and dependable.”</p>
-                                    <h2>David Kim</h2>
-                                    <h3>Owner, AutoCare Plus</h3>
+                                    <p>“Corey built a Netflix Clone, and it has completely
+                                        streamlined and responsive. His attention to detail in the UI made it
+                                        easy for people to use, and the site runs flawlessly on every device.
+                                        Professional, creative, and dependable.”</p>
+                                    <h2>Corey Shamburger</h2>
+                                    <h3>Owner, Netflix Clone</h3>
                                 </div>
                             </div>
                             <div class="single-testi text-center item">
                                 <div class="testi-img"></div>
                                 <div class="block-quote">
-                                    <p>“Corey developed a reusable component library for our design system, and it’s already saving us hours of dev time every week. His code was well-structured, easy to integrate, and beautifully documented. It’s rare to find a developer who balances performance, accessibility, and design so well.”</p>
-                                    <h2>Rachel Green</h2>
-                                    <h3>Lead Designer, PixelWorks Studio</h3>
+                                    <p>“Swift Design CRM has completely transformed the way we manage our business. The
+                                        interface is intuitive, the features are exactly what we need, and the support
+                                        from Corey was outstanding. Our team is more organized and productive than ever.
+                                        Highly recommended for any business looking for a modern, reliable CRM
+                                        solution!”</p>
+                                    <h2>John Smith</h2>
+                                    <h3>Lead Designer, Swift Design CRM</h3>
                                 </div>
                             </div>
                         </div>
@@ -727,7 +601,7 @@
                     <div class="single-contact text-center wow fadeInDown" data-wow-delay="0.8s">
                         <i class="fa fa-envelope-o"></i>
                         <h2>Email</h2>
-                        <p>hello@codebycorey.dev</p>
+                        <p><a href="mailto:hello@codebycorey.dev">hello@codebycorey.dev</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -747,7 +621,7 @@
             </div>
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <form id="contact-form" method="post" action="contact.php" class="wow fadeInDown"
+                    <form id="contact-form" method="POST" action="mailto:hello@codebycorey.dev" class="wow fadeInDown"
                         data-wow-delay="1.2s">
                         <div class="messages"></div>
                         <div class="controls">
@@ -779,7 +653,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button class="btn btn-send" value="">Send message</button>
+                                    <button type="submit" class="btn btn-gold">Send Message</button>
                                 </div>
                             </div>
                         </div>
@@ -823,7 +697,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                    <p>Copyright &copy; <span id="year">2025 </span>Swift Design | Code by Corey</p> 
+                    <p>Copyright &copy; <span id="year">2025 </span>Swift Design | Code by Corey</p>
                 </div>
             </div>
         </div>
@@ -873,5 +747,7 @@
 
     </script>
 </body>
-
 </html>
+
+
+
