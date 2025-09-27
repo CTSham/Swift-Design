@@ -558,6 +558,43 @@ canvas{
 
 /*-------About area css ends--------------*/
 
+/* Additional about section refinements */
+.about-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.about-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Tighter spacing for skills heading */
+#skills h3 {
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 767px) {
+    .about-text-left h2,
+    .about-text-left h3,
+    .about-text-left p {
+        text-align: center;
+    }
+    .about-text-left a {
+        float: none;
+        display: inline-block;
+        margin: 0 auto 20px;
+    }
+    .about-photo, .about-text-right, .about-text-left { 
+        margin-top: 40px; 
+    }
+}
+
 /*---------------7. Services area Starts--------------*/
 
 .services-area {
