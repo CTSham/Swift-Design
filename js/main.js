@@ -149,7 +149,25 @@ $(document).ready(function () {
 		opacity:1,
 		quality:'default'
 	});
-	
+
+	// Progressive about portrait handling
+	var portrait = document.querySelector('.about-portrait');
+	if (portrait) {
+		portrait.classList.add('loading');
+		if (portrait.complete) {
+			portrait.classList.remove('loading');
+			portrait.classList.add('loaded');
+		} else {
+			portrait.addEventListener('load', function(){
+				portrait.classList.remove('loading');
+				portrait.classList.add('loaded');
+			});
+			portrait.addEventListener('error', function(){
+				portrait.classList.remove('loading');
+				portrait.style.background = '#ccc';
+			});
+		}
+	}
 
 
 });
