@@ -1,48 +1,38 @@
-// Simple JS event listener for demo/test: redirect to thank you page on submit
-document.querySelector("#contact-form")?.addEventListener("submit", function(e) {
-    e.preventDefault();
-    window.location.href = "thank-you.html";
-});
-// init the validator
-// validator files are included in the download package
-// otherwise download from http://1000hz.github.io/bootstrap-validator
+// Enhanced contact form submission with Fetch API + graceful fallback
 
-$('#contact-form').validator();
+(function(){
+    var form = document.getElementById('contact-form');
+    if(!form) return;
+    var btn  = form.querySelector('button[type="submit"]');
+    var messages = form.querySelector('.messages');
 
-
-// when the form is submitted
-$('#contact-form').on('submit', function (e) {
-
-    // if the validator does not prevent form submit
-    if (!e.isDefaultPrevented()) {
-        alert('Contact form submit handler triggered!'); // Debugging: confirm button is active
-        var url = "contact.php";
-
-        // POST values in the background the the script URL
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: $(this).serialize(),
-            success: function (data)
-            {
-                // data = JSON object that contact.php returns
-
-                // we recieve the type of the message: success x danger and apply it to the 
-                var messageAlert = 'alert-' + data.type;
-                var messageText = data.message;
-
-                // let's compose Bootstrap alert box HTML
-                var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                
-                // If we have messageAlert and messageText
-                if (messageAlert && messageText) {
-                    // inject the alert to .messages div in our form
-                    $('#contact-form').find('.messages').html(alertBox);
-                    // empty the form
-                    $('#contact-form')[0].reset();
-                }
-            }
-        });
-        return false;
+    function showAlert(type, text){
+        if(!messages) return;
+        messages.innerHTML = '<div class="alert alert-'+type+' alert-dismissable">'
+            +'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
+            + text + '</div>';
     }
-})
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(btn){
+            btn.disabled = true;
+            btn.dataset.originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+        }
+        var formData = new FormData(form);
+        fetch('contact.php', { method:'POST', body: formData, headers:{'X-Requested-With':'XMLHttpRequest'} })
+            .then(function(r){ return r.json().catch(function(){ return {type:'error', message:'Unexpected response'}}); })
+            .then(function(res){
+                showAlert(res.type === 'success' ? 'success' : 'danger', res.message);
+                if(res.type === 'success') { form.reset(); }
+            })
+            .catch(function(){ showAlert('danger','Network error, please try again.'); })
+            .finally(function(){
+                if(btn){
+                    btn.disabled = false;
+                    btn.textContent = btn.dataset.originalText || 'Send Message';
+                }
+            });
+    });
+})();

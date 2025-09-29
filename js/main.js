@@ -48,7 +48,11 @@ $(document).ready(function () {
 	//*********** Animated headline js
 
 	$('.animate-scale').animatedHeadline({
-		animationType: 'clip'
+		animationType: 'clip',
+		animationDelay: 6500,      // was 4000; increase for slower word change
+		barAnimationDelay: 7800,   // keep ~+1300ms over animationDelay
+		typeAnimationDelay: 3500,   // spacing before next cycle (if other types used)
+		revealAnimationDelay: 3900  // reveal timing aligned with longer delay
 	});
 
 	//***** Skill bar js

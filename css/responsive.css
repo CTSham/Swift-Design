@@ -102,6 +102,8 @@ NB: This is the responsive stylesheet of this theme.
     .sticky_navigation .nav li a {
         color: #ffffff;
     }
+    .nav-area .nav > li > a { color: goldenrod; }
+    .nav-area .nav > li > a:hover { color: #ffffff; }
 
     .welcome-text h2 {
         font-size: 2em;

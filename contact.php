@@ -1,75 +1,143 @@
 <?php
-/*
- *  CONFIGURE EVERYTHING HERE
- */
+// Contact form handler using PHPMailer (SMTP) for reliable delivery
+// Requirements: run `composer install` to pull in phpmailer/phpmailer dependency
 
-// an email address that will be in the From field of the email.
-$from = 'Demo contact form <demo@domain.com>';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
-// an email address that will receive the email with the output of the form
-$sendTo = 'Demo contact form <hello@codebycorey.dev>';
+require __DIR__ . '/vendor/autoload.php';
 
-// subject of the email
-$subject = 'New message from contact form';
-
-// form field names and their translations.
-// array variable name => Text to appear in the email
-$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message'); 
-
-// message that will be displayed when everything is OK :)
-$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
-
-// If something goes wrong, we will display this message.
-$errorMessage = 'There was an error while submitting the form. Please try again later';
-
-/*
- *  LET'S DO THE SENDING
- */
-
-// if you are not debugging and don't need error reporting, turn this off by error_reporting(0);
-error_reporting(E_ALL & ~E_NOTICE);
-
-try
-{
-
-    if(count($_POST) == 0) throw new \Exception('Form is empty');
-            
-    $emailText = "You have a new message from your contact form\n=============================\n";
-
-    foreach ($_POST as $key => $value) {
-        // If the field exists in the $fields array, include it in the email 
-        if (isset($fields[$key])) {
-            $emailText .= "$fields[$key]: $value\n";
-        }
-    }
-
-    // All the neccessary headers for the email.
-    $headers = array('Content-Type: text/plain; charset="UTF-8";',
-        'From: ' . $from,
-        'Reply-To: ' . $from,
-        'Return-Path: ' . $from,
-    );
-    
-    // Send email
-    mail($sendTo, $subject, $emailText, implode("\n", $headers));
-
-    $responseArray = array('type' => 'success', 'message' => $okMessage);
-}
-catch (\Exception $e)
-{
-    $responseArray = array('type' => 'danger', 'message' => $errorMessage);
+// Load environment variables (.env) if present
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->safeLoad();
 }
 
+function envv($key, $default = null) {
+    return isset($_ENV[$key]) && $_ENV[$key] !== '' ? $_ENV[$key] : $default;
+}
 
-// if requested by AJAX request return JSON response
-if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    $encoded = json_encode($responseArray);
+// ---------------- CONFIGURATION ----------------
+$config = [
+    'toEmail'       => envv('MAIL_TO_ADDRESS', 'hello@codebycorey.dev'),
+    'toName'        => envv('MAIL_TO_NAME', 'Portfolio Contact'),
+    'subject'       => envv('MAIL_SUBJECT', 'New message from contact form'),
+    'fromEmail'     => envv('MAIL_FROM_ADDRESS', 'no-reply@codebycorey.dev'),
+    'fromName'      => envv('MAIL_FROM_NAME', 'Swift Design Website'),
+    'smtp' => [
+        'host'       => envv('MAIL_HOST', 'smtp.yourprovider.com'),
+        'username'   => envv('MAIL_USERNAME', 'smtp-user'),
+        'password'   => envv('MAIL_PASSWORD', 'smtp-pass'),
+        'port'       => (int)envv('MAIL_PORT', 587),
+        'encryption' => envv('MAIL_ENCRYPTION', PHPMailer::ENCRYPTION_STARTTLS),
+        'auth'       => true
+    ],
+    'successMessage' => 'Message sent successfully. Thank you — I will reply soon.',
+    'errorMessage'   => 'Sorry, your message could not be sent right now.',
+    'rateLimit'      => (int)envv('RATE_LIMIT_SECONDS', 30)
+];
 
+// Map expected fields (form name => label)
+$fields = [
+    'name'    => 'Name',
+    'email'   => 'Email',
+    'message' => 'Message'
+];
+
+// --------------- BASIC VALIDATION ---------------
+function sanitize($v) { return trim(filter_var($v, FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW)); }
+
+$data = [];
+foreach ($fields as $key => $label) {
+    $data[$key] = isset($_POST[$key]) ? sanitize($_POST[$key]) : '';
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    respond(false, 'Invalid request method');
+}
+
+if ($data['name'] === '' || $data['email'] === '' || $data['message'] === '') {
+    respond(false, 'Please fill in all required fields.');
+}
+
+if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+    respond(false, 'Please provide a valid email address.');
+}
+
+// Honeypot (optional): if a hidden field is filled, treat as spam
+if (!empty($_POST['website'])) {
+    respond(true); // pretend success to bots
+}
+
+// Rate limit (simple): limit by IP per minute using temp file
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rateFile = sys_get_temp_dir() . '/contact_rate_' . md5($ip);
+if (file_exists($rateFile) && (time() - filemtime($rateFile)) < $config['rateLimit']) { // cooldown
+    respond(false, 'Please wait a moment before sending another message.');
+}
+touch($rateFile);
+
+// --------------- BUILD EMAIL ---------------
+// Build plain text body
+$bodyLines = [
+    'You have a new contact form submission:',
+    str_repeat('=', 40)
+];
+foreach ($fields as $key => $label) { $bodyLines[] = $label . ': ' . $data[$key]; }
+$textBody = implode("\n", $bodyLines) . "\n";
+
+// Build HTML body (escape output)
+$htmlRows = '';
+foreach ($fields as $key => $label) {
+    $val = htmlspecialchars($data[$key], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    $htmlRows .= '<tr><th align="left" style="padding:6px 10px;background:#f5f5f5;border:1px solid #ddd;font-family:Arial,sans-serif;font-size:14px">' . $label . '</th><td style="padding:6px 10px;border:1px solid #ddd;font-family:Arial,sans-serif;font-size:14px">' . nl2br($val) . '</td></tr>';
+}
+$htmlBody = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Contact Form</title></head><body style="margin:0;padding:20px;background:#ffffff;font-family:Arial,sans-serif;">'
+    .'<h2 style="font-weight:600;font-size:18px;margin:0 0 15px;color:#222">New Contact Form Submission</h2>'
+    .'<table cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;max-width:600px">'
+    .$htmlRows
+    .'</table>'
+    .'<p style="font-size:12px;color:#888;margin-top:25px">Sent from the portfolio site.</p>'
+    .'</body></html>';
+
+try {
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host       = $config['smtp']['host'];
+    $mail->SMTPAuth   = $config['smtp']['auth'];
+    $mail->Username   = $config['smtp']['username'];
+    $mail->Password   = $config['smtp']['password'];
+    $mail->Port       = $config['smtp']['port'];
+    $mail->SMTPSecure = $config['smtp']['encryption'];
+    $mail->CharSet    = 'UTF-8';
+
+    $mail->setFrom($config['fromEmail'], $config['fromName']);
+    $mail->addAddress($config['toEmail'], $config['toName']);
+    // Set reply-to to the user so you can reply directly
+    $mail->addReplyTo($data['email'], $data['name']);
+
+    $mail->Subject = $config['subject'];
+    $mail->isHTML(true);
+    $mail->Body    = $htmlBody;
+    $mail->AltBody = $textBody;
+
+    $mail->send();
+    respond(true, $config['successMessage']);
+} catch (Exception $e) {
+    // Optional: log error
+    error_log('Contact form error: ' . $e->getMessage());
+    respond(false, $config['errorMessage']);
+}
+
+// --------------- RESPONSE HANDLER ---------------
+function respond($success, $message = null) {
+    $payload = [
+        'type'    => $success ? 'success' : 'error',
+        'message' => $message ?? ($success ? 'OK' : 'Error')
+    ];
+    $isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
     header('Content-Type: application/json');
-
-    echo $encoded;
-}
-// else just display the message
-else {
-    echo $responseArray['message'];
+    echo json_encode($payload);
+    exit;
 }

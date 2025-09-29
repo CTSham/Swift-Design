@@ -196,6 +196,7 @@ img {
     }
 }
 
+/* Mouse scroll indicator */
 .mouse-scroll {
     position: absolute;
     left:48%;
@@ -203,7 +204,7 @@ img {
     line-height: 18px;
     font-size: 13px;
     font-weight: normal;
-    color: #ffffff;
+    color: goldenrod;
     letter-spacing: 2px;
     margin-top: 10%;
     text-decoration: none;
@@ -218,7 +219,7 @@ img {
     margin: 0 auto 20px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    border: 3px solid #ffffff;
+    border: 3px solid goldenrod;
     border-radius: 23px;
 }
 
@@ -230,7 +231,7 @@ img {
     width: 8px;
     height: 8px;
     margin: -4px 0 0 -4px;
-    background: #ffffff;
+    background: goldenrod;
     border-radius: 50%;
     -webkit-animation: scroll-ani 2s linear infinite;
     animation: scroll-ani 2s linear infinite;
@@ -242,6 +243,19 @@ img {
 
 .nav-area{
     height: 65px;
+}
+
+/* Default (non-sticky) nav link colors */
+.nav-area .nav > li > a {
+    color: goldenrod;
+    font-weight: 600;
+}
+.nav-area .nav > li > a:hover,
+.nav-area .nav > li > a:focus {
+    color: #ffffff; /* contrast against dark hero background */
+}
+.nav-area .nav > li.active > a {
+    color: #ffffff;
 }
 
 .nav-area.sticky_navigation{
@@ -297,7 +311,7 @@ img {
 }
 
 .sticky_navigation .navbar-brand:hover{
-    color: #ffffff;
+    color: goldenrod;
 }
 
 .main-menu{
@@ -317,7 +331,7 @@ img {
     text-transform: uppercase;
     font-size: 25px;
     display: block;
-    color: #ffffff;
+    color: goldenrod;
     font-weight: 800;
 }
 
@@ -329,7 +343,7 @@ img {
 
 .navbar-brand:focus, .navbar-brand:hover {
     text-decoration: none;
-    color: #ffffff;
+    color: goldenrod;
 }
 
 .navbar-right li{
@@ -407,21 +421,21 @@ canvas{
 }
 
 .welcome-text .intro h2 {
-    color: #fff;
+    color: goldenrod;
     font-size: 85px;
     font-weight: 800;
     margin-bottom: 10px;
 }
 
 .intro h1 {
-    color: #ffffff;
+    color: goldenrod;
     font-size: 60px;
     font-weight: 200;
     margin: 0;
 }
 
 .ah-headline.clip .ah-words-wrapper::after {
-    background-color: #fff;
+    background-color: goldenrod;
 }
 
 .banner-btn {
@@ -442,7 +456,7 @@ canvas{
 }
 
 .welcome-text h3 {
-    color: #fff;
+    color: goldenrod;
     text-transform: uppercase;
 }
 
@@ -562,6 +576,15 @@ canvas{
     object-fit: cover;
     background: #f5f5f5; 
     transition: filter .4s ease, transform .4s ease;
+}
+
+/* Dedicated portrait styling */
+.about-portrait {
+    object-fit: cover;
+    object-position: 50% 30%;
+    background:#f5f5f5; /* fallback neutral */
+    /* If image still appears black, uncomment the next line to force a background-image fallback
+       background:#f5f5f5 url('about/IMG_0082.jpg') center/cover no-repeat; */
 }
 
 /* Optional subtle reveal effect once image decoded */
