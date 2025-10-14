@@ -520,30 +520,8 @@ canvas {
     text-transform: uppercase;
     background: goldenrod;
     padding: 15px;
+    float: right;
     text-decoration: none;
-}
-
-.about-text-right {
-    margin-top: 90px;
-}
-
-.about-text-left {
-    margin-top: 90px;
-}
-
-.about-text-left p {
-    text-align: right;
-    font-size: 15px;
-    color: #222;
-    margin-bottom: 50px;
-}
-
-/* Center wrapper only for the button while keeping text right-aligned */
-.cv-btn-wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
 }
 
 .about-text-right {
@@ -574,6 +552,7 @@ canvas {
 }
 
 .skillbar .skillbar-percent {
+    float: right;
     display: inline-block;
     vertical-align: middle
 }
@@ -591,62 +570,6 @@ canvas {
     -webkit-transition-property: width, background-color;
     -o-transition-property: width, background-color;
     transition-property: width, background-color
-}
-
-/*-------About area css ends--------------*/
-
-/* Additional about section refinements */
-.about-photo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 90px;
-    margin-bottom: 40px;
-}
-
-.about-photo img {
-    display: block;
-    max-width: 100%;
-    width: 300px;
-    height: 400px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    background: #f5f5f5;
-    transition: filter .4s ease, transform .4s ease;
-}
-
-/* Dedicated portrait styling */
-.about-portrait {
-    object-fit: cover;
-    object-position: 50% 30%;
-    background: #f5f5f5;
-    /* fallback neutral */
-    /* If image still appears black, uncomment the next line to force a background-image fallback
-       background:#f5f5f5 url('about/IMG_0082.jpg') center/cover no-repeat; */
-}
-
-/* Optional subtle reveal effect once image decoded */
-.about-portrait:not([src]) {
-    visibility: hidden;
-}
-
-.about-portrait[src] {
-    visibility: visible;
-}
-
-.about-portrait.loaded {
-    filter: none;
-}
-
-.about-portrait.loading {
-    filter: blur(8px) saturate(60%);
-}
-
-/* Tighter spacing for skills heading */
-#skills h3 {
-    font-weight: 700;
-    margin-bottom: 25px;
 }
 
 @media (max-width: 767px) {
