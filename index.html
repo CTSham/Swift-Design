@@ -17,6 +17,10 @@
     <link rel="preload" as="image" href="about/IMG_0082.jpg" imagesrcset="about/IMG_0082.jpg 1x" fetchpriority="high">
 
 
+    <!-- Preload critical about portrait image for faster first paint -->
+    <link rel="preload" as="image" href="about/IMG_0082.jpg" imagesrcset="about/IMG_0082.jpg 1x" fetchpriority="high">
+
+
     <!--========== Theme Fonts ==========-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,600,700,800" rel="stylesheet">
 
@@ -141,7 +145,7 @@
 
             <div class="row">
                 <!-- About text column -->
-                <div class="col-md-4 col-sm-6 col-xs-12 col-lg-4">
+                <div class="col-md-8 col-sm-6 col-xs-12 col-lg-8">
                     <div class="about-text-left">
                         <h2>Corey Shamburger</h2>
                         <h3>Full Stack Developer</h3>
@@ -155,6 +159,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 col-lg-4 about-photo">
+                    <img src="about/IMG_0082.jpg" class="img-responsive about-portrait"
+                        alt="Portrait of Corey Shamburger" width="300" height="400" decoding="async" loading="eager"
+                        fetchpriority="high" />
+                </div>
+            </div>
+
+            <!-- Second Developer Profile Row -->
+            <div class="row" style="margin-top: 50px;">
                 <div class="col-md-4 col-sm-6 col-xs-12 col-lg-4">
                     <div class="about-text-left">
                         <h2>Robert Harvey</h2>
