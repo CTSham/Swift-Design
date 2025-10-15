@@ -759,6 +759,14 @@ canvas {
     margin: 0 auto;
 }
 
+.white-popup a {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    display: inline-block;
+}
+
 .por-text-details .col-xs-4 p {
     font-weight: bold;
     text-transform: uppercase;
