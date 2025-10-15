@@ -20,10 +20,10 @@ function envv($key, $default = null) {
 
 // ---------------- CONFIGURATION ----------------
 $config = [
-    'toEmail'       => envv('MAIL_TO_ADDRESS', 'hello@codebycorey.dev'),
+    'toEmail'       => envv('MAIL_TO_ADDRESS', 'info@swiftdesigns.studio'),
     'toName'        => envv('MAIL_TO_NAME', 'Portfolio Contact'),
     'subject'       => envv('MAIL_SUBJECT', 'New message from contact form'),
-    'fromEmail'     => envv('MAIL_FROM_ADDRESS', 'no-reply@codebycorey.dev'),
+    'fromEmail'     => envv('MAIL_FROM_ADDRESS', 'no-reply@swiftdesigns.studio'),
     'fromName'      => envv('MAIL_FROM_NAME', 'Swift Design Website'),
     'smtp' => [
         'host'       => envv('MAIL_HOST', 'smtp.yourprovider.com'),
