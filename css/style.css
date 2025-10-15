@@ -1146,6 +1146,87 @@ canvas {
 
 /*--------------- Footer area ends -------------*/
 
+/*--------------14. Thank You Page styles -------------*/
+
+.thank-you-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.thank-you-container h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-container p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-gold {
+    background: goldenrod;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+}
+
+.btn-gold:hover {
+    background: #b8860b;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+}
+
+/* Thank you page responsive styles */
+@media (max-width: 768px) {
+    .thank-you-container h1 {
+        font-size: 36px;
+    }
+
+    .thank-you-container p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .btn-gold {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .thank-you-container h1 {
+        font-size: 28px;
+    }
+
+    .thank-you-container p {
+        font-size: 14px;
+    }
+}
+
+/*------------- Thank You Page styles end -------------*/
+
 .port-box .overlay p {
     word-break: break-word;
     overflow-wrap: break-word;
