@@ -597,7 +597,9 @@ canvas {
 
 .services-area {
     background: #F3F4F3;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
 }
 
 .services-icon i {
