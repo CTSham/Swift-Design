@@ -489,12 +489,31 @@ canvas {
 
 /*---------- 6. About area css starts---------------*/
 
+/* Developer profile row styling */
+.developer-profile {
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.developer-profile .about-photo {
+    text-align: center;
+    margin: 0;
+}
+
+.developer-profile .about-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .about-text-left h2 {
     font-weight: 700;
     font-size: 36px;
     color: #212121;
     line-height: 1;
-    text-align: right;
+    text-align: left;
     margin-bottom: 5px;
 }
 
@@ -503,12 +522,12 @@ canvas {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-align: right;
+    text-align: left;
     margin-bottom: 18px;
 }
 
 .about-text-left p {
-    text-align: right;
+    text-align: left;
     font-size: 13px;
     color: #222;
     margin-bottom: 50px;
@@ -533,7 +552,7 @@ canvas {
 }
 
 .about-text-left p {
-    text-align: right;
+    text-align: left;
     font-size: 15px;
     color: #222;
     margin-bottom: 50px;
@@ -590,6 +609,14 @@ canvas {
     .about-text-right,
     .about-text-left {
         margin-top: 40px;
+    }
+
+    .developer-profile {
+        margin-bottom: 40px;
+    }
+
+    .developer-profile .about-photo {
+        margin-top: 30px;
     }
 }
 
