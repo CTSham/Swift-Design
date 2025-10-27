@@ -23,12 +23,12 @@ $config = [
     'toEmail'       => envv('MAIL_TO_ADDRESS', 'info@swiftdesigns.studio'),
     'toName'        => envv('MAIL_TO_NAME', 'Portfolio Contact'),
     'subject'       => envv('MAIL_SUBJECT', 'New message from contact form'),
-    'fromEmail'     => envv('MAIL_FROM_ADDRESS', 'no-reply@swiftdesigns.studio'),
-    'fromName'      => envv('MAIL_FROM_NAME', 'Swift Design Website'),
+    'fromEmail'     => envv('MAIL_FROM_ADDRESS', 'info@swiftdesigns.studio'),
+    'fromName'      => envv('MAIL_FROM_NAME', 'Swift Designs Website'),
     'smtp' => [
-        'host'       => envv('MAIL_HOST', 'smtp.gmail.com'),
-        'username'   => envv('MAIL_USERNAME', 'your-email@gmail.com'),
-        'password'   => envv('MAIL_PASSWORD', 'your-app-password'),
+        'host'       => envv('MAIL_HOST', 'smtp.porkbun.com'),
+        'username'   => envv('MAIL_USERNAME', 'info@swiftdesigns.studio'),
+        'password'   => envv('MAIL_PASSWORD', 'ShamDawg334$'),
         'port'       => (int)envv('MAIL_PORT', 587),
         'encryption' => envv('MAIL_ENCRYPTION', PHPMailer::ENCRYPTION_STARTTLS),
         'auth'       => true
@@ -101,34 +101,51 @@ $htmlBody = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Contact For
     .'<p style="font-size:12px;color:#888;margin-top:25px">Sent from the portfolio site.</p>'
     .'</body></html>';
 
-try {
+    // --------------- SEND EMAIL USING PHPMailer --------------- //
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name    = trim($_POST['name'] ?? '');
+    $email   = trim($_POST['email'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    if ($name === '' || $email === '' || $message === '') {
+        die('All fields are required.');
+    }
+
     $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->Host       = $config['smtp']['host'];
-    $mail->SMTPAuth   = $config['smtp']['auth'];
-    $mail->Username   = $config['smtp']['username'];
-    $mail->Password   = $config['smtp']['password'];
-    $mail->Port       = $config['smtp']['port'];
-    $mail->SMTPSecure = $config['smtp']['encryption'];
-    $mail->CharSet    = 'UTF-8';
 
-    $mail->setFrom($config['fromEmail'], $config['fromName']);
-    $mail->addAddress($config['toEmail'], $config['toName']);
-    // Set reply-to to the user so you can reply directly
-    $mail->addReplyTo($data['email'], $data['name']);
+    try {
+        // SMTP configuration
+        $mail->isSMTP();
+        $mail->Host       = getenv('MAIL_HOST');
+        $mail->SMTPAuth   = true;
+        $mail->Username   = getenv('MAIL_USERNAME');
+        $mail->Password   = getenv('MAIL_PASSWORD');
+        $mail->SMTPSecure = getenv('MAIL_ENCRYPTION');
+        $mail->Port       = getenv('MAIL_PORT');
 
-    $mail->Subject = $config['subject'];
-    $mail->isHTML(true);
-    $mail->Body    = $htmlBody;
-    $mail->AltBody = $textBody;
+        // Sender and recipient
+        $mail->setFrom(getenv('MAIL_FROM_ADDRESS'), getenv('MAIL_FROM_NAME'));
+        $mail->addAddress(getenv('MAIL_TO_ADDRESS'), getenv('MAIL_TO_NAME'));
+        $mail->addReplyTo($email, $name);
 
-    $mail->send();
-    respond(true, $config['successMessage']);
-} catch (Exception $e) {
-    // Optional: log error
-    error_log('Contact form error: ' . $e->getMessage());
-    respond(false, $config['errorMessage']);
+        // Email content
+        $mail->isHTML(true);
+        $mail->Subject = getenv('MAIL_SUBJECT');
+        $mail->Body    = "<h3>New Contact Message from Swift Designs</h3>
+                         <p><strong>Name:</strong> {$name}</p>
+                         <p><strong>Email:</strong> {$email}</p>
+                         <p><strong>Message:</strong><br>{$message}</p>";
+
+        $mail->AltBody = "Name: {$name}\nEmail: {$email}\nMessage:\n{$message}";
+
+        $mail->send();
+        echo "success";
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
 }
+
 
 // --------------- RESPONSE HANDLER ---------------
 function respond($success, $message = null) {
