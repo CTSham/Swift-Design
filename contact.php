@@ -2,11 +2,11 @@
 // Contact form handler using PHPMailer (SMTP) for reliable delivery
 // Requirements: run `composer install` to pull in phpmailer/phpmailer dependency
 
+require __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use Dotenv\Dotenv;
-
-require __DIR__ . '/vendor/autoload.php';
 
 // Load environment variables (.env) if present
 if (file_exists(__DIR__ . '/.env')) {

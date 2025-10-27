@@ -1,6 +1,6 @@
 {
-  "name": "ctsham/swift-design-contact",
-  "description": "Contact form dependencies for Swift Design portfolio site.",
+  "name": "ctsham/swift-designs-contact",
+  "description": "Contact form dependencies for Swift Designs portfolio site.",
   "type": "project",
   "require": {
     "phpmailer/phpmailer": "^6.9",
