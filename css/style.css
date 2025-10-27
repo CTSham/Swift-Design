@@ -539,7 +539,8 @@ canvas {
     text-transform: uppercase;
     background: goldenrod;
     padding: 15px;
-    float: right;
+    float: none;
+    display: inline-block;
     text-decoration: none;
 }
 
