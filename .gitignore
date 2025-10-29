@@ -44,3 +44,4 @@ yarn.lock
 # Temporary files
 *.tmp
 *.temp
+.vercel
