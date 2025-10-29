@@ -1,52 +1,59 @@
 // Enhanced contact form submission with client-side handling for demo purposes
 
 (function () {
-    const form = document.getElementById("contact-form");
+    const form = document.getElementById('contact-form');
     if (!form) return;
 
     const btn = form.querySelector('button[type="submit"]');
-    const messages = form.querySelector(".messages");
+    const messages = form.querySelector('.messages');
 
-    function show(type, text) {
+    const show = (type, text) => {
         if (!messages) return;
         messages.innerHTML =
-            '<div class="alert alert-' +
-            type +
-            ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-            text +
-            "</div>";
-    }
+            `<div class="alert alert-${type} alert-dismissable">
+         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+         ${text}
+       </div>`;
+    };
 
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(form);
-        if (btn) {
-            btn.disabled = true;
-            btn.dataset.originalText = btn.textContent;
-            btn.textContent = "Sending...";
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const message = form.querySelector('textarea[name="message"]').value.trim();
+
+        if (!name || !email.includes('@') || !message) {
+            show('danger', 'Please complete all fields with a valid email.');
+            return;
         }
 
-        try {
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                body: formData,
-            });
-            const data = await res.json();
+        btn?.setAttribute('disabled', 'true');
+        const original = btn?.textContent;
+        if (btn) btn.textContent = 'Sending…';
 
-            if (data.type === "success") {
-                show("success", data.message || "Success!");
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            const data = await res.json().catch(() => ({}));
+
+            if (res.ok && data?.type !== 'error') {
+                show('success', 'Message sent! Redirecting…');
                 form.reset();
-                setTimeout(() => (window.location.href = "thank-you.html"), 1200);
+                setTimeout(() => (window.location.href = 'thank-you.html'), 1500);
             } else {
-                show("danger", data.message || "Something went wrong.");
+                show('danger', data?.message || 'Sorry, something went wrong.');
             }
         } catch (err) {
-            show("danger", "Network error. Please try again.");
+            show('danger', 'Network error. Please try again.');
         } finally {
             if (btn) {
-                btn.disabled = false;
-                btn.textContent = btn.dataset.originalText || "Send Message";
+                btn.removeAttribute('disabled');
+                btn.textContent = original || 'Send Message';
             }
         }
     });
