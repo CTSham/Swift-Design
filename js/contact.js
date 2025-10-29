@@ -1,70 +1,53 @@
 // Enhanced contact form submission with client-side handling for demo purposes
 
 (function () {
-    var form = document.getElementById('contact-form');
+    const form = document.getElementById("contact-form");
     if (!form) return;
-    var btn = form.querySelector('button[type="submit"]');
-    var messages = form.querySelector('.messages');
 
-    function showAlert(type, text) {
+    const btn = form.querySelector('button[type="submit"]');
+    const messages = form.querySelector(".messages");
+
+    function show(type, text) {
         if (!messages) return;
-        messages.innerHTML = '<div class="alert alert-' + type + ' alert-dismissable">'
-            + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
-            + text + '</div>';
+        messages.innerHTML =
+            '<div class="alert alert-' +
+            type +
+            ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+            text +
+            "</div>";
     }
 
-    function validateForm() {
-        var name = form.querySelector('input[name="name"]').value.trim();
-        var email = form.querySelector('input[name="email"]').value.trim();
-        var message = form.querySelector('textarea[name="message"]').value.trim();
-
-        if (!name) {
-            showAlert('danger', 'Please enter your full name.');
-            return false;
-        }
-
-        if (!email || !email.includes('@')) {
-            showAlert('danger', 'Please enter a valid email address.');
-            return false;
-        }
-
-        if (!message) {
-            showAlert('danger', 'Please enter a message.');
-            return false;
-        }
-
-        return true;
-    }
-
-    form.addEventListener('submit', function (e) {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        if (!validateForm()) {
-            return;
-        }
-
+        const formData = new FormData(form);
         if (btn) {
             btn.disabled = true;
             btn.dataset.originalText = btn.textContent;
-            btn.textContent = 'Sending...';
+            btn.textContent = "Sending...";
         }
 
-        // Simulate form processing with a delay
-        setTimeout(function () {
-            // For demo purposes, always show success and redirect
-            showAlert('success', 'Message sent successfully! Redirecting...');
-            form.reset();
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                body: formData,
+            });
+            const data = await res.json();
 
-            // Redirect to thank you page after 2 seconds
-            setTimeout(function () {
-                window.location.href = 'thank-you.html';
-            }, 2000);
-
+            if (data.type === "success") {
+                show("success", data.message || "Success!");
+                form.reset();
+                setTimeout(() => (window.location.href = "thank-you.html"), 1200);
+            } else {
+                show("danger", data.message || "Something went wrong.");
+            }
+        } catch (err) {
+            show("danger", "Network error. Please try again.");
+        } finally {
             if (btn) {
                 btn.disabled = false;
-                btn.textContent = btn.dataset.originalText || 'Send Message';
+                btn.textContent = btn.dataset.originalText || "Send Message";
             }
-        }, 1500); // Simulate processing time
+        }
     });
 })();
-}) ();
