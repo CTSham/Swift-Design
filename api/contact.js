@@ -1,5 +1,19 @@
 // api/contact.js
 
+// api/contact.js
+if (process.env.NODE_ENV !== 'production') {
+    // allow .env/.env.local in local dev
+    try { require('dotenv').config(); } catch { }
+}
+
+const uri = process.env.MONGODB_URI;
+if (!uri || !uri.startsWith('mongodb')) {
+    return res.status(500).json({
+        type: 'error',
+        message: 'Server not configured: MONGODB_URI is missing.'
+    });
+}
+
 import { MongoClient } from "mongodb";
 import nodemailer from "nodemailer";
 
