@@ -683,13 +683,14 @@
             </div>
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <form id="contact-form" method="POST" action="/contact.php" class="wow fadeInDown">
+                    <form id="contact-form" method="POST" action="/api/contact.js" class="wow fadeInDown">
                         <div class="messages"></div>
                         <div class="controls">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input id="form_name" type="text" name="name" class="form-control"
+                                        <input id="form_name" type="text" name="website" style="display: none;"
+                                            tabindex="-1" autocomplete="off" class="form-control"
                                             placeholder="Enter your full name *" required="required"
                                             data-error="Fullname is required.">
                                         <div class="help-block with-errors"></div>
