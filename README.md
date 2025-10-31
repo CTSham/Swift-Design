@@ -1,4 +1,4 @@
-# 🌐 Swift Designs Studio
+# 🌐 Swift Designs
 
 ### 🚀 Modern Web Experiences Built for Speed, Style & Scalability
 
