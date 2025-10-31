@@ -2,7 +2,7 @@
 
 ### 🚀 Modern Web Experiences Built for Speed, Style & Scalability
 
-Swift Designs is a full-stack web development & digital design studio led by **Corey Shamburger — Certified Full-Stack Developer** specializing in building high-performance, conversion-focused applications and business websites.
+Swift Designs is a "Full-Stack Web Development & Digital Design Studio" led by **Corey Shamburger — Certified Full-Stack Developer** specializing in building high-performance, conversion-focused applications and business websites.
 
 We create clean, fast, user-friendly digital experiences that blend modern UI/UX design with strong engineering fundamentals.
 
