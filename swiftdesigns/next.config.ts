@@ -1,8 +1,9 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+const config: NextConfig = {
+  turbopack: { root: '.' } // 👈 pin the real root
 };
 
-export default nextConfig;
+export default config;
+// --- IGNORE ---

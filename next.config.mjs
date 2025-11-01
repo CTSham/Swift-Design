@@ -1,19 +1,9 @@
 // next.config.mjs
-import createMDX from '@next/mdx'
-
-const withMDX = createMDX({
-    extension: /\.mdx?$/,
-    options: {
-        remarkPlugins: [import('remark-gfm')],
-    },
-})
-
 /** @type {import('next').NextConfig} */
-const baseConfig = {
-    pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-    experimental: {
-        reactCompiler: true, // you enabled React Compiler
-    },
-}
+const config = {
+    experimental: { reactCompiler: true },
+    turbopack: { root: '.' } // 👈 pin the real root (this folder)
+};
 
-export default withMDX(baseConfig)
+export default config;
+
