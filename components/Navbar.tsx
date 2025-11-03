@@ -9,6 +9,8 @@ const links = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
+  { href: "/getEstimate", label: "Get Estimate" },
 ];
 
 export default function Navbar() {
